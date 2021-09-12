@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navBtn1"
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="@string/bottomNavigationHome"/>
+    <item
+        android:id="@+id/navBtn2"
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="@string/bottomNavigationSearch"/>
+    <item
+        android:id="@+id/navBtn3"
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="@string/bottomNavigationLibrary"/>
+
+</menu>
