@@ -6,4 +6,5 @@
     <string name="bottomNavigationSearch">Search</string>
     <string name="bottomNavigationLibrary">Your Library</string>
     <string name="greatingStart">Good afternoon</string>
+    <string name="your_library">Your Library</string>
 </resources>

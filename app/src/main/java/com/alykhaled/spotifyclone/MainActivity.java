@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
 
-        Fragment fragment = new MainFragment();
+        Fragment fragment = new LibraryFragment();
         MainActivity.this.getSupportFragmentManager().beginTransaction()
                 .replace(R.id.mainView, fragment)
                 .addToBackStack(null)
