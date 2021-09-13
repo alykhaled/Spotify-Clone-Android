@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/colorPrimary"
+        tools:context=".ArtistFragment">
+
+        <!-- Artist Image and title -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/artistImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/pablo"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Marwan Pablo"
+                android:textColor="#fff"
+                android:fontFamily="sans-serif"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:layout_alignBottom="@+id/artistImage"/>
+        </RelativeLayout>
+
+        <!-- Artist's monthly listeners and follow button -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:text=">"/>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true">
+                <TextView
+                    android:id="@+id/artistListeners"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="144,514 monthly listeners"
+                    android:textColor="@color/textColor"/>
+
+                <Button
+                    android:id="@+id/artistFollowBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/artistListeners"
+                    android:text="Follow"
+                    />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/artistListeners"
+                    android:layout_toEndOf="@+id/artistFollowBtn"
+                    android:text="..."
+                    />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <!-- Liked Songs Bar -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/LikedSongsArtistImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                app:cardCornerRadius="200dp">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/pablo"/>
+
+            </com.google.android.material.card.MaterialCardView>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:text=">"/>
+            <TextView
+                android:id="@+id/likedSongsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Liked Songs"
+                android:layout_toEndOf="@+id/LikedSongsArtistImage"
+                android:textColor="@color/textColor"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="14 Songs - Marwan Pablo"
+                android:layout_toEndOf="@+id/LikedSongsArtistImage"
+                android:layout_below="@+id/likedSongsText"
+                android:textColor="@color/textColor"/>
+        </RelativeLayout>
+
+        <!-- Popular Section -->
+
+        <!-- Popular releases Section -->
+
+        <!-- Featuring Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Featuring Marwan Pablo"
+            android:textColor="#fff"
+            android:fontFamily="sans-serif"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:itemCount="1"
+            tools:listitem="@layout/album_item"/>
+
+        <!-- Fans also like Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fans slso like"
+            android:textColor="#fff"
+            android:fontFamily="sans-serif"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:itemCount="1"
+            tools:listitem="@layout/artist_item"/>
+
+        <!-- Appears on Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Appears On"
+            android:textColor="#fff"
+            android:fontFamily="sans-serif"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:itemCount="1"
+            tools:listitem="@layout/album_item"/>
+
+        <!-- About Section -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/Theme.MaterialComponents.Light"
+            android:layout_margin="15dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/pablo"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Verified Artist"
+                    android:textColor="#fff"
+                    android:fontFamily="sans-serif"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="144,514 monthly listeners"
+                    android:textColor="#fff"
+                    android:fontFamily="sans-serif"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    android:layout_alignParentBottom="true"/>
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </LinearLayout>
+</ScrollView>
