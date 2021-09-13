@@ -3,7 +3,7 @@
     <item
         android:id="@+id/navBtn1"
         android:enabled="true"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/ic_svg_path"
         android:title="@string/bottomNavigationHome"/>
     <item
         android:id="@+id/navBtn2"
