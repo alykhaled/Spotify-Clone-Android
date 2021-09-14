@@ -1,5 +1,7 @@
-package com.alykhaled.spotifyclone;
+package com.alykhaled.spotifyclone.models;
 
+import java.util.ArrayList;
+import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -23,6 +25,12 @@ public class Artist {
     @SerializedName("followers")
     @Expose
     private String followers;
+    @SerializedName("__v")
+    @Expose
+    private Integer v;
+    @SerializedName("albums")
+    @Expose
+    private ArrayList<String> albums = null;
 
     public String getId() {
         return id;
@@ -72,6 +80,22 @@ public class Artist {
         this.followers = followers;
     }
 
+    public Integer getV() {
+        return v;
+    }
+
+    public void setV(Integer v) {
+        this.v = v;
+    }
+
+    public ArrayList<String> getAlbums() {
+        return albums;
+    }
+
+    public void setAlbums(ArrayList<String> albums) {
+        this.albums = albums;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -99,6 +123,14 @@ public class Artist {
         sb.append("followers");
         sb.append('=');
         sb.append(((this.followers == null)?"<null>":this.followers));
+        sb.append(',');
+        sb.append("v");
+        sb.append('=');
+        sb.append(((this.v == null)?"<null>":this.v));
+        sb.append(',');
+        sb.append("albums");
+        sb.append('=');
+        sb.append(((this.albums == null)?"<null>":this.albums));
         sb.append(',');
         if (sb.charAt((sb.length()- 1)) == ',') {
             sb.setCharAt((sb.length()- 1), ']');

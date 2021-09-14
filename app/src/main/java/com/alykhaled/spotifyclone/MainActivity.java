@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.View;
 
+import com.alykhaled.spotifyclone.fragments.MainFragment;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override

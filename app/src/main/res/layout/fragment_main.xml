@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".MainFragment">
+    tools:context=".fragments.MainFragment">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,6 +50,7 @@
             android:text="Popular artists"/>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/artistRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:itemCount="1"

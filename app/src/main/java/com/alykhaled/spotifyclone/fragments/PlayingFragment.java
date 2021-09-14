@@ -1,4 +1,4 @@
-package com.alykhaled.spotifyclone;
+package com.alykhaled.spotifyclone.fragments;
 
 import android.os.Bundle;
 
@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.alykhaled.spotifyclone.R;
 
 public class PlayingFragment extends Fragment {
 

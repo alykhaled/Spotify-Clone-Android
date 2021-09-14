@@ -1,4 +1,4 @@
-package com.alykhaled.spotifyclone;
+package com.alykhaled.spotifyclone.fragments;
 
 import android.os.Bundle;
 
@@ -8,15 +8,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class ArtistFragment extends Fragment {
+import com.alykhaled.spotifyclone.R;
 
-    public ArtistFragment() {
+public class AlbumFragment extends Fragment {
+
+
+    public AlbumFragment() {
         // Required empty public constructor
     }
 
-    public static ArtistFragment newInstance(String param1, String param2) {
-        ArtistFragment fragment = new ArtistFragment();
+    public static AlbumFragment newInstance(String param1, String param2) {
+        AlbumFragment fragment = new AlbumFragment();
         Bundle args = new Bundle();
+
         fragment.setArguments(args);
         return fragment;
     }
@@ -30,9 +34,8 @@ public class ArtistFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_artist, container, false);
+        return inflater.inflate(R.layout.fragment_album, container, false);
     }
 }
