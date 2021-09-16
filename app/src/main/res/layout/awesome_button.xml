@@ -4,10 +4,15 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     >
-    <Button
-        android:id="@+id/elevatedButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Elevated button"
-        />
+    <com.alykhaled.spotifyclone.AwesomeButton
+        android:id="@+id/emotionalFaceView"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:src="@drawable/arrow_down"
+        android:tint="#000"
+        android:background="@android:color/transparent"
+        android:layout_centerInParent="true">
+
+    </com.alykhaled.spotifyclone.AwesomeButton>
+
 </RelativeLayout>

@@ -34,7 +34,7 @@ public class ArtistFragment extends Fragment {
     AlbumsAdapter mAlbumsAdapter;
     TextView artistName;
     ImageView artistImage;
-    String artistID;
+    String artistID = "";
     public ArtistFragment() {
 
     }
