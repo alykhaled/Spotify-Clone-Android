@@ -9,42 +9,56 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="15dp"
         android:orientation="vertical">
         <ImageView
+            android:id="@+id/albumCoverImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:src="@drawable/pablo"
-            android:layout_margin="20dp"/>
+            android:layout_margin="15dp"/>
 
         <TextView
+            android:id="@+id/albumName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="The Beirut School"
-            android:textColor="#fff"/>
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:layout_margin="5dp"
+            android:textSize="25sp"/>
 
         <TextView
+            android:id="@+id/albumArtistName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Mashrou' Leila"
-            android:textColor="#fff"/>
+            android:textColor="#fff"
+            android:layout_margin="5dp"
+            android:textStyle="bold"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
+            android:layout_margin="5dp"
             android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/albumText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Album 2019"
-                android:textColor="#fff"/>
-            <Button
+                android:text="Album - 2019"
+                android:textColor="@color/textColor"/>
+
+            <ImageButton
                 android:id="@+id/albumLikeBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Like"
-                android:textColor="#fff"
-                android:layout_below="@+id/albumText"/>
+                android:src="@drawable/like"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/transparent"
+                android:layout_below="@+id/albumText"
+                />
+
             <Button
                 android:id="@+id/albumDownloadBtn"
                 android:layout_width="wrap_content"
@@ -65,9 +79,9 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_alignParentEnd="true"
-                android:text=">"/>
+                android:layout_alignParentBottom="true"
+                android:text=">" />
         </RelativeLayout>
 
         <!-- Songs List -->

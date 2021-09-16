@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.alykhaled.spotifyclone.fragments.ArtistFragment;
+import com.alykhaled.spotifyclone.fragments.LibraryFragment;
 import com.alykhaled.spotifyclone.fragments.MainFragment;
 import com.alykhaled.spotifyclone.fragments.PlayingFragment;
 
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
 
-        Fragment fragment = new MainFragment();
+        Fragment fragment = new LibraryFragment();
         MainActivity.this.getSupportFragmentManager().beginTransaction()
                 .replace(R.id.mainView, fragment)
                 .addToBackStack(null)
