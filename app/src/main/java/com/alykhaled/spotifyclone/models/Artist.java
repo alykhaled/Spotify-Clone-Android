@@ -30,7 +30,7 @@ public class Artist {
     private Integer v;
     @SerializedName("albums")
     @Expose
-    private ArrayList<String> albums = null;
+    private ArrayList<Album> albums = null;
 
     public String getId() {
         return id;
@@ -88,11 +88,11 @@ public class Artist {
         this.v = v;
     }
 
-    public ArrayList<String> getAlbums() {
+    public ArrayList<Album> getAlbums() {
         return albums;
     }
 
-    public void setAlbums(ArrayList<String> albums) {
+    public void setAlbums(ArrayList<Album> albums) {
         this.albums = albums;
     }
 

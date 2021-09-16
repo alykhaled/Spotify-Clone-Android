@@ -71,7 +71,7 @@ public class MainFragment extends Fragment {
             public void onResponse(Call<ArrayList<Artist>> call, Response<ArrayList<Artist>> response) {
                 mArtistList = response.body();
                 Collections.reverse(mArtistList);
-                mArtistsAdapter = new ArtistsAdapter(getContext(), mArtistList);
+                mArtistsAdapter = new ArtistsAdapter(mArtistList);
                 mArtistView.setAdapter(mArtistsAdapter);
 
             }
