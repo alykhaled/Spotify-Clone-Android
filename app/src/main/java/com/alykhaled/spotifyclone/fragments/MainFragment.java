@@ -9,10 +9,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
 import android.widget.Toast;
 
 import com.alykhaled.spotifyclone.API.APIClient;
 import com.alykhaled.spotifyclone.API.APIInterface;
+import com.alykhaled.spotifyclone.adapter.RecentlyPlayedAdapter;
+import com.alykhaled.spotifyclone.models.Album;
 import com.alykhaled.spotifyclone.models.Artist;
 import com.alykhaled.spotifyclone.R;
 import com.alykhaled.spotifyclone.adapter.ArtistsAdapter;
@@ -27,9 +30,11 @@ import retrofit2.Response;
 public class MainFragment extends Fragment {
     APIInterface apiInterface;
     RecyclerView mArtistView;
-    LinearLayoutManager ArtistLayoutManager;
+    GridView mRecentlyPlayedView;
     ArrayList<Artist> mArtistList;
     ArtistsAdapter mArtistsAdapter;
+    ArrayList<Album> mRecentlyPlayedList;
+    RecentlyPlayedAdapter mRecentlyPlayedAdapter;
 
     public MainFragment() {
 
@@ -55,15 +60,17 @@ public class MainFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         mArtistView = view.findViewById(R.id.artistRecyclerView);
+        mRecentlyPlayedView = view.findViewById(R.id.recentlyPlayedTracksView);
+
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         LinearLayoutManager HorizontalLayout;
         HorizontalLayout = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
-
         mArtistView.setLayoutManager(mLayoutManager);
         mArtistView.setHasFixedSize(true);
         mArtistView.setLayoutManager(HorizontalLayout);
 
         mArtistList = new ArrayList<>();
+        mRecentlyPlayedList = new ArrayList<>();
         apiInterface = APIClient.getClient().create(APIInterface.class);
         Call<ArrayList<Artist>> call = apiInterface.getAllArtist();
         call.enqueue(new Callback<ArrayList<Artist>>() {
@@ -74,6 +81,9 @@ public class MainFragment extends Fragment {
                 mArtistsAdapter = new ArtistsAdapter(mArtistList);
                 mArtistView.setAdapter(mArtistsAdapter);
 
+                mRecentlyPlayedAdapter = new RecentlyPlayedAdapter(getContext(),mArtistList);
+                mRecentlyPlayedView.setAdapter(mRecentlyPlayedAdapter);
+
             }
 
             @Override
@@ -82,6 +92,7 @@ public class MainFragment extends Fragment {
                 Toast.makeText(getContext(), "FAIL" , Toast.LENGTH_SHORT).show();
             }
         });
+
         return view;
     }
 }
