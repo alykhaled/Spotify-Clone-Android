@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/navBtn1"
+        android:id="@+id/nav_home"
         android:enabled="true"
         android:icon="@drawable/ic_svg_path"
         android:title="@string/bottomNavigationHome"/>
     <item
-        android:id="@+id/navBtn2"
+        android:id="@+id/nav_search"
         android:enabled="true"
         android:icon="@drawable/search"
         android:title="@string/bottomNavigationSearch"/>
     <item
-        android:id="@+id/navBtn3"
+        android:id="@+id/nav_library"
         android:enabled="true"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="@string/bottomNavigationLibrary"/>

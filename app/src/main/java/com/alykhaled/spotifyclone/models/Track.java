@@ -3,44 +3,6 @@ package com.alykhaled.spotifyclone.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-class Context {
-
-    @SerializedName("type")
-    @Expose
-    private String type;
-    @SerializedName("artist")
-    @Expose
-    private Artist artist;
-    @SerializedName("album")
-    @Expose
-    private Album album;
-
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public Artist getArtist() {
-        return artist;
-    }
-
-    public void setArtist(Artist artist) {
-        this.artist = artist;
-    }
-
-    public Album getAlbum() {
-        return album;
-    }
-
-    public void setAlbum(Album album) {
-        this.album = album;
-    }
-}
-
 public class Track {
 
     @SerializedName("_id")
@@ -60,10 +22,10 @@ public class Track {
     private String trackNumber;
     @SerializedName("album")
     @Expose
-    private Album album;
+    private Album album = null;
     @SerializedName("artist")
     @Expose
-    private Artist artist;
+    private Artist artist = null;
     @SerializedName("played_times")
     @Expose
     private String playedTimes;
@@ -73,9 +35,6 @@ public class Track {
     @SerializedName("__v")
     @Expose
     private Integer v;
-    @SerializedName("context")
-    @Expose
-    private Context context;
 
     public String getId() {
         return id;
@@ -157,13 +116,6 @@ public class Track {
         this.v = v;
     }
 
-    public Context getContext() {
-        return context;
-    }
-
-    public void setContext(Context context) {
-        this.context = context;
-    }
 
     @Override
     public String toString() {
@@ -208,10 +160,6 @@ public class Track {
         sb.append("v");
         sb.append('=');
         sb.append(((this.v == null)?"<null>":this.v));
-        sb.append(',');
-        sb.append("context");
-        sb.append('=');
-        sb.append(((this.context == null)?"<null>":this.context));
         sb.append(',');
         if (sb.charAt((sb.length()- 1)) == ',') {
             sb.setCharAt((sb.length()- 1), ']');

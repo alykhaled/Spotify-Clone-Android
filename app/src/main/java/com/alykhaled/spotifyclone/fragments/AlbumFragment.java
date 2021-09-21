@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import com.alykhaled.spotifyclone.R;
 
 public class AlbumFragment extends Fragment {
+    String albumID = "";
 
 
     public AlbumFragment() {
@@ -29,7 +30,8 @@ public class AlbumFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-
+            Bundle id = getArguments();
+            albumID = id.getString("albumId");
         }
     }
 

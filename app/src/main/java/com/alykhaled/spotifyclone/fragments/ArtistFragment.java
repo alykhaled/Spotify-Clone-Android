@@ -20,6 +20,7 @@ import com.alykhaled.spotifyclone.adapter.AlbumsAdapter;
 import com.alykhaled.spotifyclone.adapter.ArtistsAdapter;
 import com.alykhaled.spotifyclone.models.Album;
 import com.alykhaled.spotifyclone.models.Artist;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -71,8 +72,8 @@ public class ArtistFragment extends Fragment {
         mAlbumsView.setHasFixedSize(true);
         mAlbumsView.setLayoutManager(HorizontalLayout);
 
-        Call<ArrayList<Album>> call = apiInterface.getAlbums(artistID);
-        call.enqueue(new Callback<ArrayList<Album>>() {
+        Call<ArrayList<Album>> getAlbums = apiInterface.getAlbums(artistID);
+        getAlbums.enqueue(new Callback<ArrayList<Album>>() {
             @Override
             public void onResponse(Call<ArrayList<Album>> call, Response<ArrayList<Album>> response) {
                 mAlbumList = response.body();
@@ -83,6 +84,21 @@ public class ArtistFragment extends Fragment {
             public void onFailure(Call<ArrayList<Album>> call, Throwable t) {
                 call.cancel();
                 Toast.makeText(getContext(), "FAIL" , Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        Call<Artist> getArtist = apiInterface.getArtist(artistID);
+        getArtist.enqueue(new Callback<Artist>() {
+            @Override
+            public void onResponse(Call<Artist> call, Response<Artist> response) {
+                Artist currentArtist = response.body();
+                artistName.setText(currentArtist.getName());
+                Picasso.get().load(currentArtist.getProfileImage()).fit().centerInside().into(artistImage);
+            }
+
+            @Override
+            public void onFailure(Call<Artist> call, Throwable t) {
+
             }
         });
         return view;

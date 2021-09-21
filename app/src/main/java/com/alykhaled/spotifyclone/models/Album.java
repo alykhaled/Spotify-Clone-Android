@@ -3,6 +3,8 @@ package com.alykhaled.spotifyclone.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+
 public class Album {
 
     @SerializedName("name")
@@ -26,6 +28,9 @@ public class Album {
     @SerializedName("__v")
     @Expose
     private Integer v;
+    @SerializedName("tracks")
+    @Expose
+    private ArrayList<Track> tracks = null;
 
     public String getName() {
         return name;
@@ -81,6 +86,14 @@ public class Album {
 
     public void setV(Integer v) {
         this.v = v;
+    }
+
+    public ArrayList<Track> getTracks() {
+        return tracks;
+    }
+
+    public void setTracks(ArrayList<Track> tracks) {
+        this.tracks = tracks;
     }
 
     @Override

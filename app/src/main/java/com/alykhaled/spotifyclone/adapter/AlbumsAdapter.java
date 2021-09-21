@@ -1,5 +1,7 @@
 package com.alykhaled.spotifyclone.adapter;
 
+import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,9 +9,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alykhaled.spotifyclone.R;
+import com.alykhaled.spotifyclone.fragments.AlbumFragment;
+import com.alykhaled.spotifyclone.fragments.ArtistFragment;
 import com.alykhaled.spotifyclone.models.Album;
 import com.squareup.picasso.Picasso;
 
@@ -17,6 +23,7 @@ import java.util.ArrayList;
 
 public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.ViewHolder> {
     private ArrayList<Album> mAlbumsList;
+    private Context mContext;
 
     public AlbumsAdapter(ArrayList<Album> mAlbumsList) {
         this.mAlbumsList = mAlbumsList;
@@ -26,6 +33,8 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.ViewHolder
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.album_item,parent,false);
+        mContext = parent.getContext();
+
         return new ViewHolder(view);
     }
 
@@ -35,6 +44,19 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.ViewHolder
         holder.name.setText(currentAlbum.getName());
         holder.desc.setText(currentAlbum.getYear());
         Picasso.get().load(currentAlbum.getImage()).fit().centerInside().into(holder.image);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putString("albumId",currentAlbum.getId());
+                Fragment fragment = new AlbumFragment();
+                fragment.setArguments(args);
+                ((FragmentActivity)mContext).getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.mainView, fragment)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
     }
 
     @Override

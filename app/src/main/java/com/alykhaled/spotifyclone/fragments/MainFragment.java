@@ -19,6 +19,7 @@ import com.alykhaled.spotifyclone.models.Album;
 import com.alykhaled.spotifyclone.models.Artist;
 import com.alykhaled.spotifyclone.R;
 import com.alykhaled.spotifyclone.adapter.ArtistsAdapter;
+import com.alykhaled.spotifyclone.models.RecentTrack;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,7 +34,7 @@ public class MainFragment extends Fragment {
     GridView mRecentlyPlayedView;
     ArrayList<Artist> mArtistList;
     ArtistsAdapter mArtistsAdapter;
-    ArrayList<Album> mRecentlyPlayedList;
+    ArrayList<RecentTrack> mRecentlyPlayedList;
     RecentlyPlayedAdapter mRecentlyPlayedAdapter;
 
     public MainFragment() {
@@ -71,19 +72,17 @@ public class MainFragment extends Fragment {
 
         mArtistList = new ArrayList<>();
         mRecentlyPlayedList = new ArrayList<>();
+
         apiInterface = APIClient.getClient().create(APIInterface.class);
-        Call<ArrayList<Artist>> call = apiInterface.getAllArtist();
-        call.enqueue(new Callback<ArrayList<Artist>>() {
+
+        Call<ArrayList<Artist>> getAllArtist = apiInterface.getAllArtist();
+        getAllArtist.enqueue(new Callback<ArrayList<Artist>>() {
             @Override
             public void onResponse(Call<ArrayList<Artist>> call, Response<ArrayList<Artist>> response) {
                 mArtistList = response.body();
                 Collections.reverse(mArtistList);
                 mArtistsAdapter = new ArtistsAdapter(mArtistList);
                 mArtistView.setAdapter(mArtistsAdapter);
-
-                mRecentlyPlayedAdapter = new RecentlyPlayedAdapter(getContext(),mArtistList);
-                mRecentlyPlayedView.setAdapter(mRecentlyPlayedAdapter);
-
             }
 
             @Override
@@ -93,6 +92,21 @@ public class MainFragment extends Fragment {
             }
         });
 
+        Call<ArrayList<RecentTrack>> getRecentTracks = apiInterface.getRecentTracks();
+        getRecentTracks.enqueue(new Callback<ArrayList<RecentTrack>>() {
+            @Override
+            public void onResponse(Call<ArrayList<RecentTrack>> call, Response<ArrayList<RecentTrack>> response) {
+                mRecentlyPlayedList = response.body();
+                mRecentlyPlayedAdapter = new RecentlyPlayedAdapter(getContext(),mRecentlyPlayedList);
+                mRecentlyPlayedView.setAdapter(mRecentlyPlayedAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<RecentTrack>> call, Throwable t) {
+                Toast.makeText(getContext(), "FAIL" , Toast.LENGTH_SHORT).show();
+
+            }
+        });
         return view;
     }
 }

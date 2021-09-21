@@ -85,7 +85,12 @@
         </RelativeLayout>
 
         <!-- Songs List -->
-
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/artistRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:itemCount="8"
+            tools:listitem="@layout/track_item"/>
         <!-- Album's Time and artist -->
         <TextView
             android:layout_width="match_parent"
