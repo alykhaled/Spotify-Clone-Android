@@ -42,7 +42,7 @@ public class ArtistsAdapter extends RecyclerView.Adapter<ArtistsAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Artist currentArtist = mArtistsList.get(position);
         holder.artistText.setText(currentArtist.getName());
-        Picasso.get().load(currentArtist.getProfileImage()).fit().centerInside().into(holder.artistImage);
+        Picasso.get().load(currentArtist.getProfileImage()).fit().centerCrop().into(holder.artistImage);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

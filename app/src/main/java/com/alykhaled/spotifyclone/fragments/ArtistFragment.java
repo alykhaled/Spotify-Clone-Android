@@ -62,13 +62,10 @@ public class ArtistFragment extends Fragment {
         artistImage = (ImageView) view.findViewById(R.id.artistImage);
         apiInterface = APIClient.getClient().create(APIInterface.class);
         mAlbumsView = view.findViewById(R.id.featuringRecyclerView);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
-        LinearLayoutManager HorizontalLayout;
-        HorizontalLayout = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+        LinearLayoutManager HorizontalLayout = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);;
 
         mAlbumList = new ArrayList<>();
 
-        mAlbumsView.setLayoutManager(mLayoutManager);
         mAlbumsView.setHasFixedSize(true);
         mAlbumsView.setLayoutManager(HorizontalLayout);
 

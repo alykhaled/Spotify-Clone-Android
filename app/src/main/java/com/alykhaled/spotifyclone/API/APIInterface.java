@@ -26,4 +26,11 @@ public interface APIInterface {
     //////////////// ME ////////////////
     @GET("/api/me/recent")
     Call<ArrayList<RecentTrack>> getRecentTracks();
+
+    //////////////// Album ////////////////
+    @GET("/api/album/{id}")
+    Call<Album> getAlbum(@Path("id") String id);
+
+    @GET("/api/album/{id}/tracks")
+    Call<ArrayList<Track>> getAlbumTracks(@Path("id") String id);
 }

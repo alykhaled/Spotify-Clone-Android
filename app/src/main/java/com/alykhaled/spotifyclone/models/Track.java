@@ -36,6 +36,16 @@ public class Track {
     @Expose
     private Integer v;
 
+    private boolean liked;
+
+    public boolean isLiked() {
+        return liked;
+    }
+
+    public void setLiked(boolean liked) {
+        this.liked = liked;
+    }
+
     public String getId() {
         return id;
     }
