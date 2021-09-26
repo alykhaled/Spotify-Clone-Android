@@ -35,6 +35,7 @@ public class ArtistFragment extends Fragment {
     AlbumsAdapter mAlbumsAdapter;
     TextView artistName;
     ImageView artistImage;
+    ImageView artistAboutImage;
     String artistID = "";
     public ArtistFragment() {
 
@@ -60,6 +61,7 @@ public class ArtistFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_artist, container, false);
         artistName = (TextView) view.findViewById(R.id.artistName);
         artistImage = (ImageView) view.findViewById(R.id.artistImage);
+        artistAboutImage = (ImageView) view.findViewById(R.id.artistAboutImage);
         apiInterface = APIClient.getClient().create(APIInterface.class);
         mAlbumsView = view.findViewById(R.id.featuringRecyclerView);
         LinearLayoutManager HorizontalLayout = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);;
@@ -91,6 +93,7 @@ public class ArtistFragment extends Fragment {
                 Artist currentArtist = response.body();
                 artistName.setText(currentArtist.getName());
                 Picasso.get().load(currentArtist.getProfileImage()).fit().centerInside().into(artistImage);
+                Picasso.get().load(currentArtist.getProfileImage()).fit().centerInside().into(artistAboutImage);
             }
 
             @Override
